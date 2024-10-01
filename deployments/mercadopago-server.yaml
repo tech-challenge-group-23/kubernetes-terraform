@@ -58,10 +58,9 @@ kind: Service
 metadata:
   name: mercadopago-api-clusterip
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: mercadopago-api
   ports:
-    - protocol: TCP
-      port: 3004
-      nodePort: 30003
+    - port: 3004
+      targetPort: 3004

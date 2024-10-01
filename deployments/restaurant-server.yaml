@@ -49,6 +49,7 @@ apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
   name: restaurant-api
+  namespace: rms
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
@@ -63,10 +64,9 @@ kind: Service
 metadata:
   name: restaurant-api-clusterip
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: restaurant-api
   ports:
     - port: 8080
       targetPort: 8080
-      nodePort: 30001
