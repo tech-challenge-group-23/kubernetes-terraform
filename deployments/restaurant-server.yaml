@@ -63,10 +63,9 @@ kind: Service
 metadata:
   name: restaurant-api-clusterip
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: restaurant-api
   ports:
     - port: 8080
       targetPort: 8080
-      nodePort: 30001

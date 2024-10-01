@@ -58,9 +58,9 @@ kind: Service
 metadata:
   name: database-clusterip
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: database
   ports:
     - port: 5432
-      nodePort: 30002
+      targetPort: 5432
